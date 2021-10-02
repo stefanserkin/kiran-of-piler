@@ -10,7 +10,7 @@ trigger deleteOPPteam on OpportunityLineItem (after delete) {
             oppIdSet.add(oli.OpportunityId);
         }
         
-        // Create a list of OpportunityTeamMembers
+        // Create a map for opportunities with children opportunity team members
         Map<Id, Opportunity> oppyWithOTMsMap = new Map<Id, Opportunity>([
             SELECT Id,
                    (SELECT Id,
